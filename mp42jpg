@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Check if the correct number of arguments was provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <video_file> <fps>"
+    exit 1
+fi
+
+VIDEO_FILE="$1"
+FPS="$2"
+
+# Get base name of video file, for output folder
+VIDEO_NAME=$(basename "$VIDEO_FILE")
+VIDEO_NAME_NO_EXT="${VIDEO_NAME%.*}"
+
+# Create out directory if it doesn't exist
+mkdir -p "Video2JPG"
+
+# Create sub-directory based on mp4 filename
+FRAME_DIR="$Video2JPG/${VIDEO_NAME_NO_EXT}_frames"
+mkdir -p "FRAME_DIR"
+
+# Run ffmpeg to extract frames at specified fps
+
+ffmpeg -i "$VIDEO_FILE" -vf "fps=$FPS" "$FRAME_DIR/frame_%04d.jpg"
+
+echo "Frames extracted at $FPS to $FRAME_DIR" 
+ 
