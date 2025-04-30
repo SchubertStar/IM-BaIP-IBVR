@@ -1,0 +1,155 @@
+Accessing virtual Python environment...
+Creating output directory...
+Moving and extracting data...
+Generating dynamic data.yaml with absolute paths...
+Starting training...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8s.pt to 'yolov8s.pt'...
+New https://pypi.org/project/ultralytics/8.3.121 available 😃 Update with 'pip install -U ultralytics'
+Ultralytics 8.3.119 🚀 Python-3.9.6 torch-2.7.0+cu126 CUDA:0 (Tesla V100-PCIE-32GB, 32494MiB)
+[34m[1mengine/trainer: [0mtask=detect, mode=train, model=yolov8s.pt, data=data.yaml, epochs=10, time=None, patience=100, batch=64, imgsz=640, save=True, save_period=-1, cache=False, device=0, workers=16, project=None, name=train, exist_ok=False, pretrained=True, optimizer=auto, verbose=True, seed=0, deterministic=True, single_cls=False, rect=False, cos_lr=False, close_mosaic=10, resume=False, amp=True, fraction=1.0, profile=False, freeze=None, multi_scale=False, overlap_mask=True, mask_ratio=4, dropout=0.0, val=True, split=val, save_json=False, conf=None, iou=0.7, max_det=300, half=False, dnn=False, plots=True, source=None, vid_stride=1, stream_buffer=False, visualize=False, augment=False, agnostic_nms=False, classes=None, retina_masks=False, embed=None, show=False, save_frames=False, save_txt=False, save_conf=False, save_crop=False, show_labels=True, show_conf=True, show_boxes=True, line_width=None, format=torchscript, keras=False, optimize=False, int8=False, dynamic=False, simplify=True, opset=None, workspace=None, nms=False, lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=7.5, cls=0.5, dfl=1.5, pose=12.0, kobj=1.0, nbs=64, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, bgr=0.0, mosaic=1.0, mixup=0.0, cutmix=0.0, copy_paste=0.0, copy_paste_mode=flip, auto_augment=randaugment, erasing=0.4, cfg=None, tracker=botsort.yaml, save_dir=runs/detect/train
+Downloading https://ultralytics.com/assets/Arial.ttf to '/home4/s4377583/.config/Ultralytics/Arial.ttf'...
+Overriding model.yaml nc=80 with nc=11
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       928  ultralytics.nn.modules.conv.Conv             [3, 32, 3, 2]                 
+  1                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  2                  -1  1     29056  ultralytics.nn.modules.block.C2f             [64, 64, 1, True]             
+  3                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+  4                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+  5                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  6                  -1  2    788480  ultralytics.nn.modules.block.C2f             [256, 256, 2, True]           
+  7                  -1  1   1180672  ultralytics.nn.modules.conv.Conv             [256, 512, 3, 2]              
+  8                  -1  1   1838080  ultralytics.nn.modules.block.C2f             [512, 512, 1, True]           
+  9                  -1  1    656896  ultralytics.nn.modules.block.SPPF            [512, 512, 5]                 
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 12                  -1  1    591360  ultralytics.nn.modules.block.C2f             [768, 256, 1]                 
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 15                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+ 16                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 18                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+ 19                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+ 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 21                  -1  1   1969152  ultralytics.nn.modules.block.C2f             [768, 512, 1]                 
+ 22        [15, 18, 21]  1   2120305  ultralytics.nn.modules.head.Detect           [11, [128, 256, 512]]         
+Model summary: 129 layers, 11,139,857 parameters, 11,139,841 gradients, 28.7 GFLOPs
+
+Transferred 349/355 items from pretrained weights
+Freezing layer 'model.22.dfl.conv.weight'
+[34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt to 'yolo11n.pt'...
+[34m[1mAMP: [0mchecks passed ✅
+[34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3363.7±702.3 MB/s, size: 728.7 KB)
+[34m[1mtrain: [0mNew cache created: /tmp/kittiYOLOData/labels/train.cache
+[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 1912.1±1118.6 MB/s, size: 841.3 KB)
+[34m[1mval: [0mNew cache created: /tmp/kittiYOLOData/labels/val.cache
+Plotting labels to runs/detect/train/labels.jpg... 
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.000667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+Image sizes 640 train, 640 val
+Using 16 dataloader workers
+Logging results to [1mruns/detect/train[0m
+Starting training for 10 epochs...
+Closing dataloader mosaic
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.384      0.418      0.363      0.208
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.485      0.411       0.41      0.243
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.634      0.357      0.415      0.243
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.556      0.493      0.525      0.322
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.599      0.567      0.579      0.361
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.608      0.588      0.612      0.384
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160       0.66      0.602      0.648      0.419
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.721      0.603      0.677       0.44
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.705      0.653      0.707      0.471
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all       1497      10160      0.746      0.659      0.728      0.488
+
+10 epochs completed in 0.111 hours.
+Optimizer stripped from runs/detect/train/weights/last.pt, 22.5MB
+Optimizer stripped from runs/detect/train/weights/best.pt, 22.5MB
+
+Validating runs/detect/train/weights/best.pt...
+Ultralytics 8.3.119 🚀 Python-3.9.6 torch-2.7.0+cu126 CUDA:0 (Tesla V100-PCIE-32GB, 32494MiB)
+Model summary (fused): 72 layers, 11,129,841 parameters, 0 gradients, 28.5 GFLOPs
+                   all       1497      10160      0.747      0.658      0.727      0.488
+                   Car       1333       5680      0.922      0.862       0.94      0.727
+                   Van        425        563      0.857      0.787      0.871      0.651
+                 Truck        190        198      0.928      0.843      0.908      0.707
+            Pedestrian        357        896      0.663      0.616      0.681      0.371
+        Person_sitting         13         30      0.625        0.4      0.528      0.301
+               Cyclist        222        306      0.672      0.699      0.732       0.43
+                  Tram         76         99      0.809      0.853      0.894      0.623
+                  Misc        158        195      0.796      0.677      0.769      0.509
+              DontCare       1079       2193      0.454      0.187      0.223     0.0735
+Speed: 0.0ms preprocess, 0.5ms inference, 0.0ms loss, 0.8ms postprocess per image
+Results saved to [1mruns/detect/train[0m
+💡 Learn more at https://docs.ultralytics.com/modes/train
+Saving training results...
+Moving SLURM output files to final directory...
+Job finished successfully.
+
+###############################################################################
+Hábrók Cluster
+Job 16912352 for user s4377583
+Finished at: Wed Apr 30 13:44:04 CEST 2025
+
+Job details:
+============
+
+Job ID                         : 16912352
+Name                           : v1_111664
+User                           : s4377583
+Partition                      : gpumedium
+Nodes                          : v100v2gpu11
+Number of Nodes                : 1
+Cores                          : 16
+Number of Tasks                : 1
+State                          : COMPLETED  
+Submit                         : 2025-04-30T12:19:39
+Start                          : 2025-04-30T13:34:47
+End                            : 2025-04-30T13:44:00
+Reserved walltime              : 12:00:00
+Used walltime                  : 00:09:13
+Used CPU time                  : 00:35:42 (Efficiency: 24.21%)
+% User (Computation)           : 92.29%
+% System (I/O)                 :  7.71%
+Total memory reserved          : 64G
+Maximum memory used            : 7.78G
+Requested GPUs                 : 1
+Allocated GPUs                 : v100=1
+Max GPU utilization            : 93%
+Max GPU memory used            : 13.73G
+Hints and tips      :
+ 1) You requested much more CPU memory than your program used.
+    Please reduce the requested amount of memory.
+ *) For more information on these issues see:
+    https://wiki.hpc.rug.nl/habrok/additional_information/job_hints
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

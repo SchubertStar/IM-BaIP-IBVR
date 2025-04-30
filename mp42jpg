@@ -15,14 +15,12 @@ VIDEO_NAME_NO_EXT="${VIDEO_NAME%.*}"
 
 # Create out directory if it doesn't exist
 mkdir -p "Video2JPG"
+cd Video2JPG
 
 # Create sub-directory based on mp4 filename
-FRAME_DIR="$Video2JPG/${VIDEO_NAME_NO_EXT}_frames"
-mkdir -p "FRAME_DIR"
+mkdir -p "${VIDEO_NAME_NO_EXT}_frames"
 
 # Run ffmpeg to extract frames at specified fps
-
 ffmpeg -i "$VIDEO_FILE" -vf "fps=$FPS" "$FRAME_DIR/frame_%04d.jpg"
 
-echo "Frames extracted at $FPS to $FRAME_DIR" 
- 
+echo "Frames extracted at $FPS to $FRAME_DIR"
