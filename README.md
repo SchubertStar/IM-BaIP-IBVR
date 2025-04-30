@@ -1,4 +1,4 @@
-# BaIPModelv1
+# IM-BaIP-IBVR
 
 First iteration of Ian Michel (s4377583) model for IBVR implementation, includes:
 
