@@ -3,5 +3,6 @@
 First iteration of Ian Michel (s4377583) model for IBVR implementation, includes:
 
 1) Bash-ffmpeg script for video-image conversion,
-2) CLIP to OWL-ViT pipeline for data-labelling,
-3) Yolov8 Model, for KITTI data-set.
+2) Kitti2Yolo label conversion script
+3) Datasplit script, creates training and valuation sets.
+4) Inlcludes SLURM scripts used and outputs.
