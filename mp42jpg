@@ -9,18 +9,19 @@ fi
 VIDEO_FILE="$1"
 FPS="$2"
 
-# Get base name of video file, for output folder
+# Get base name of video file (including extension)
 VIDEO_NAME=$(basename "$VIDEO_FILE")
+# Remove file extension from video name to use for folder name
 VIDEO_NAME_NO_EXT="${VIDEO_NAME%.*}"
 
-# Create out directory if it doesn't exist
-mkdir -p "Video2JPG"
-cd Video2JPG
+# Create the main videoJPGs directory if it doesn't exist
+mkdir -p "videoJPGs"
 
-# Create sub-directory based on mp4 filename
-mkdir -p "${VIDEO_NAME_NO_EXT}_frames"
+# Create a sub-directory based on the video file name (without extension)
+OUTPUT_DIR="videoJPGs/${VIDEO_NAME_NO_EXT}"
+mkdir -p "$OUTPUT_DIR"
 
-# Run ffmpeg to extract frames at specified fps
-ffmpeg -i "$VIDEO_FILE" -vf "fps=$FPS" "$FRAME_DIR/frame_%04d.jpg"
+# Run ffmpeg to extract frames at the specified fps and save them to the output directory
+ffmpeg -i "$VIDEO_FILE" -vf "fps=$FPS" "$OUTPUT_DIR/frame_%04d.jpg"
 
-echo "Frames extracted at $FPS to $FRAME_DIR"
+echo "Frames extracted at $FPS FPS and saved to $OUTPUT_DIR"
