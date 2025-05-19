@@ -5,3 +5,7 @@
 \kittiYOLOData*
 videos*
 videoJPGs*
+\v1output
+aadatasets*
+kitti_label*
+rawROSbagdata
