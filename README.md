@@ -8,4 +8,5 @@ Final iteration of Ian Michel, Bachelor IP files:
 5) Harbrok Scripts: SLURM job scripts for training the used YOLO models (v8 and v11), and 3D bounding box regression network.
 
 Read the latest version of the paper: https://github.com/SchubertStar/IM-BaIP-IBVR/blob/main/BaIP_IM_s4377583.pdf
+
 Download model weights and datasets: https://drive.google.com/drive/folders/1m2RemG62f1eLEq0WNFkjdfvmjNILxfep?usp=drive_link
