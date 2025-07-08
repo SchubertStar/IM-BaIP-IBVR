@@ -6,3 +6,6 @@ Final iteration of Ian Michel, Bachelor IP files:
 3) JetsonROS: src folder that the ROS workspace can be built from, including packages for IBVR pecetion.
 4) Matlab scripts: Relevant for plotting system behavioure, 1-Agent Formation Control, 2-Agent Formation Control, and path recording.
 5) Harbrok Scripts: SLURM job scripts for training the used YOLO models (v8 and v11), and 3D bounding box regression network.
+
+Read the latest version of the paper: https://github.com/SchubertStar/IM-BaIP-IBVR/blob/main/BaIP_IM_s4377583.pdf
+Download model weights and datasets: https://drive.google.com/drive/folders/1m2RemG62f1eLEq0WNFkjdfvmjNILxfep?usp=drive_link
