@@ -1,0 +1,9 @@
+
+#!/bin/bash
+
+JOB_ID=$1
+DEST_DIR="/scratch/$USER/nexusYolo/output/$JOB_ID"
+mkdir -p $DEST_DIR
+
+mv "${JOB_ID}.out" "$DEST_DIR/" 2>/dev/null || echo "Output file not found."
+mv "${JOB_ID}.err" "$DEST_DIR/" 2>/dev/null || echo "Error file not found."

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+  <group ns="nexus4">
+    <!-- Bringup nexus_base -->
+    <node pkg="rosserial_python" type="serial_node.py" name="nexus_base" respawn="false" output="screen" >
+      <param name="port" value="/dev/ttyUSB.nexus" />
+      <param name="baud" value="57600" />
+    </node>
+
+    <!-- Bringup nexus_base_controller node -->
+    <node pkg="nexus_base_ros" type="nexus_base_controller" name="base_controller" output="screen" respawn="false" />
+
+    <!-- Marvelmind Positioning -->
+    <node pkg="marvelmind_nav" type="hedge_rcv_bin" name="hedge_rcv_bin" respawn="false" output="log" >
+      <param name="serial_port"         type="string" value="/dev/ttyUSB.marvel"/>
+      <param name="serial_baudrate"     type="int"    value="115200"/>
+    </node>
+
+    <!-- IBVR Control Node-->
+    <node pkg="ibvr_control" type="IBVR.py" name="ibvr_controller" output="screen" respawn="false">
+    </node>
+
+  </group>
+</launch>

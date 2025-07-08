@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<launch>
+  <group ns="nexus4">
+
+    <!-- Bringup joystick node -->
+    <node pkg="joy" type="joy_node" name="joystick" respawn="false" >
+        <param name="dev" type="string" value="/dev/input/js0" />
+        <param name="deadzone" value="0.05" />
+    </node>
+
+    <!-- Bringup nexus_teleop_node -->
+    <node pkg="nexus_base_ros" type="nexus_teleop_joy" name="teleop_joy" respawn="false" output="screen" >
+        <param name="axis_linear" value="1" type="int" />
+        <param name="axis_angular" value="0" type="int" />
+    </node>
+
+    <!-- Bringup nexus_base -->
+    <node pkg="rosserial_python" type="serial_node.py" name="nexus_base" respawn="false" output="screen" >
+      <param name="port" value="/dev/ttyUSB.nexus" />
+      <param name="baud" value="57600" />
+    </node>
+
+    <!-- Bringup nexus_base_controller node -->
+    <node pkg="nexus_base_ros" type="nexus_base_controller" name="base_controller" output="screen" respawn="false" />
+
+    <!-- Marvelmind Positioning -->
+    <node pkg="marvelmind_nav" type="hedge_rcv_bin" name="hedge_rcv_bin" respawn="false" output="log" >
+      <param name="serial_port"         type="string" value="/dev/ttyUSB.marvel"/>
+      <param name="serial_baudrate"     type="int"    value="115200"/>
+    </node>
+
+    <!-- IBVR Control Node-->
+    <node pkg="ibvr_control" type="IBVRrecord.py" name="ibvr_controller" output="screen" respawn="false">
+    </node>
+
+  </group>
+</launch>
